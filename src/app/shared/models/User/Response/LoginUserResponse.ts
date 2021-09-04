@@ -1,6 +1,8 @@
 export default class LoginUserResponse{
-    Name: string;
-    Email: string;
-    CreateAt: Date;
-    UpdateAt: Date;
+    mame: string;
+    email: string;
+    createAt: Date;
+    updateAt: Date;
+    token: string;
+    tokenExpiration: Date;
 }
