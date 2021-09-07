@@ -7,6 +7,11 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
+// Alert Component
+import { AlertModule } from 'ngx-bootstrap/alert';
+// Modal Component
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -63,7 +68,9 @@ import { HttpClientModule } from '@angular/common/http';
     IconSetModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,

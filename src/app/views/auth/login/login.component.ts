@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit{
   }
 
   loginForm : FormGroup;
+  alertsDismiss: any = [];
 
   constructor(
 
@@ -50,10 +51,9 @@ export class LoginComponent implements OnInit{
   
   submit(){
 
-
     if(this.loginForm.status == "INVALID")
     {
-      console.log("error")
+      this.addAlert("Favor preencher os campos e-mail e senha!","warning");
       return;
     }
   
@@ -66,10 +66,10 @@ export class LoginComponent implements OnInit{
         console.log("Bem vindo")
       }
       else{
-        console.log("Login Inválido!")
+       this.addAlert("Usuário ou senha inválidos!", "danger");
       }
     },ex =>{
-      console.log("Error")
+      this.addAlert(ex.error, "danger");
     });
 
   }
@@ -78,5 +78,14 @@ export class LoginComponent implements OnInit{
     this.router.navigate(['recuperar-senha'])
   }
 
+
+
+  addAlert(msg: string, type: string): void {
+    this.alertsDismiss.push({
+      type: type,
+      msg: msg,
+      timeout: 5000
+    });
+  }
 
 }
