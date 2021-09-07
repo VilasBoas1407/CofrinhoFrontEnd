@@ -50,6 +50,9 @@ import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+//Import JWT
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -86,6 +89,8 @@ import { HttpClientModule } from '@angular/common/http';
       useClass: HashLocationStrategy
     },
     IconSetService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
   bootstrap: [ AppComponent ]
 })

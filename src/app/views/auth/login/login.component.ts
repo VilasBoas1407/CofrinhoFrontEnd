@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../../../services/req/login.service';
+import { StorageService } from '../../../services/utils/storage.service';
 import UserLoginInput from '../../../shared/models/User/Input/UserLoginInput';
 import { IsNull } from '../../../shared/validators/utils';
 
@@ -20,11 +21,11 @@ export class LoginComponent implements OnInit{
   alertsDismiss: any = [];
 
   constructor(
-
     private formBuilder : FormBuilder,
     private LoginService : LoginService,
     private router : Router,
     private activedRoute: ActivatedRoute,
+    private storageService: StorageService
   ){
 
 
@@ -57,13 +58,14 @@ export class LoginComponent implements OnInit{
       return;
     }
   
-
     let user = new UserLoginInput();
     user = this.loginForm.value;
 
     this.LoginService.AuthUser(user).subscribe(data =>{
       if(!IsNull(data.email) || !IsNull(data.token)){
-        console.log("Bem vindo")
+        this.storageService.set('token',data.token);
+        this.storageService.set('user',data);
+        this.router.navigate(['home'])
       }
       else{
        this.addAlert("Usuário ou senha inválidos!", "danger");
@@ -77,8 +79,6 @@ export class LoginComponent implements OnInit{
   forgotPassword(){
     this.router.navigate(['recuperar-senha'])
   }
-
-
 
   addAlert(msg: string, type: string): void {
     this.alertsDismiss.push({

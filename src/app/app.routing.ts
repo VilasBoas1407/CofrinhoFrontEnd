@@ -9,9 +9,13 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 
+//Auth Guard
+import { AuthGuardService as AuthGuard} from './services/utils/auth/auth-guard.service';
+
+
 export const routes: Routes = [
   {
-    path: '*',
+    path: 'home',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
@@ -31,6 +35,7 @@ export const routes: Routes = [
   },
   {
     path: '',
+    pathMatch: 'full',
     component: LoginComponent,
     data: {
       title: 'Login Page'
@@ -64,6 +69,7 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
