@@ -34,7 +34,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: 'login',
     pathMatch: 'full',
     component: LoginComponent,
     data: {
