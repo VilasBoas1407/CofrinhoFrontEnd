@@ -9,6 +9,11 @@ export class DefaultLayoutComponent {
   public sidebarMinimized = false;
   public navItems = navItems;
 
+  loginUsuarioParam = "Teste";
+
+  change(){
+    this.loginUsuarioParam = "Mudou"
+  }
   toggleMinimize(e) {
     this.sidebarMinimized = e;
   }

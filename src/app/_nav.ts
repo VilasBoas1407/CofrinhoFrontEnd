@@ -2,21 +2,20 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Dashboard',
+    title: true,
+    name: 'Home'
+  },
+  {
+    name: 'Planejamento Ativo',
     url: '/dashboard',
-    icon: 'icon-speedometer'
+    icon: 'icon-chart'
   },
   {
     title: true,
     name: 'Planejamentos'
   },
   {
-    name: 'Planejamento Atual',
-    url: '/theme/colors',
-    icon: 'icon-chart'
-  },
-  {
-    name: 'Planejamentos Anteriores',
+    name: 'Listar Planejamentos Anteriores',
     url: '/theme/typography',
     icon: 'icon-chart'
   },

@@ -1,14 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { DefaultLayoutComponent } from '../../containers';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
+  
 
   radioModel: string = 'Month';
+  Dash: any;
 
+  constructor(Dashboard: DefaultLayoutComponent){
+    this.Dash = Dashboard;
+  }
+
+  print(){
+    console.log(this.Dash.loginUsuarioParam)
+  }
   // lineChart1
   public lineChart1Data: Array<any> = [
     {
@@ -385,4 +395,5 @@ export class DashboardComponent implements OnInit {
       this.mainChartData3.push(65);
     }
   }
+
 }

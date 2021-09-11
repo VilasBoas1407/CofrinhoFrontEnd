@@ -15,8 +15,13 @@ import { AuthGuardService as AuthGuard} from './services/utils/auth/auth-guard.s
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
     path: 'home',
-    redirectTo: 'dashboard',
+    redirectTo: 'app/dashboard',
     pathMatch: 'full',
   },
   {
@@ -49,7 +54,7 @@ export const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: 'app',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
