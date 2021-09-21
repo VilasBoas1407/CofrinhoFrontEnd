@@ -7,7 +7,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Planejamento Ativo',
-    url: '/dashboard',
+    url: '/app/dashboard',
     icon: 'icon-chart'
   },
   {
@@ -25,7 +25,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Tipos',
-    url: '/base',
+    url: '/app/tipos',
     icon: 'icon-tag'
   },
   // {

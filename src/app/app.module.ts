@@ -27,7 +27,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
-
+import { TiposComponent } from './views/cadastros/tipos/tipos.component';
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -52,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 //Import JWT
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
 
 @NgModule({
   imports: [
@@ -81,7 +82,8 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TiposComponent
   ],
   providers: [
     {

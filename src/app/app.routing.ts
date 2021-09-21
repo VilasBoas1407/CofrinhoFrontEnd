@@ -8,7 +8,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
-
+import { TiposComponent } from './views/cadastros/tipos/tipos.component';
 //Auth Guard
 import { AuthGuardService as AuthGuard} from './services/utils/auth/auth-guard.service';
 
@@ -92,6 +92,13 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
+      },
+      {
+        path: 'tipos',
+        component: TiposComponent,
+        data:{
+          title:'Tipos Despesa / Receita'
+        }
       }
     ]
   },

@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { DefaultLayoutComponent } from '../../containers';
-
+import { PlanejamentoDTO, Meses } from '../../shared/models/Planejamento/DTO/PlanejamentoDTO';
+import { StorageService } from '../../services/utils/storage.service';
 @Component({
   templateUrl: 'dashboard.component.html'
 })
@@ -11,14 +12,17 @@ export class DashboardComponent implements OnInit {
 
   radioModel: string = 'Month';
   Dash: any;
+  Planejamento : PlanejamentoDTO;
 
-  constructor(Dashboard: DefaultLayoutComponent){
+  constructor(Dashboard: DefaultLayoutComponent,
+    private StorageService : StorageService){
     this.Dash = Dashboard;
   }
 
   print(){
     console.log(this.Dash.loginUsuarioParam)
   }
+
   // lineChart1
   public lineChart1Data: Array<any> = [
     {
@@ -388,6 +392,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setPlanejamentoAtivo();
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
@@ -396,4 +401,11 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  setPlanejamentoAtivo(){
+    const userData = this.StorageService.get('user'); 
+    this.Planejamento = userData.planejamentoAtivo;
+    const mes = this.Planejamento.mesReferencia;
+    this.Planejamento.mesReferencia = Meses.find(x => x.Id == parseInt(mes)).Descricao;
+  }
+  
 }
