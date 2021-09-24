@@ -1,1 +1,94 @@
-<p>tipos works!</p>
+<div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Tipo de despesas
+      <button data-toggle="modal" (click)="registerModal.show()" type="button" class="btn btn-pill btn-success" style="float: right;">&nbsp;<i class="fa fa-plus"></i>&nbsp; Novo</button>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Uber</td>
+            <td>Para salvar todas as corridas de aplicativo</td>
+            <td>
+                <label style="font-size: 12px;" class="badge badge-success">Receita</label>
+              </td>
+            <td>
+                <button type="button" class="btn btn-pill btn-warning">&nbsp;<i class="fa fa-edit"></i></button>
+                <button type="button" class="btn btn-pill btn-danger">&nbsp;<i class="fa fa-trash"></i>&nbsp;</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Estavan Lykos</td>
+            <td>2012/02/01</td>
+            <td>
+                <span class="badge badge-danger">Despesa</span>
+              </td>
+            <td>Staff</td>
+
+          </tr>
+          <tr>
+            <td>Chetan Mohamed</td>
+            <td>2012/02/01</td>
+            <td>Admin</td>
+            <td>
+              <span class="badge badge-secondary">Inactive</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Derick Maximinus</td>
+            <td>2012/03/01</td>
+            <td>Member</td>
+            <td>
+              <span class="badge badge-warning">Pending</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Friderik Dávid</td>
+            <td>2012/01/21</td>
+            <td>Staff</td>
+            <td>
+              <span class="badge badge-success">Active</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> -->
+    </div>
+  </div>
+
+  <div bsModal #registerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Novo tipo despesa</h4>
+          <button type="button" class="close" (click)="registerModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="registerModal.hide()">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->

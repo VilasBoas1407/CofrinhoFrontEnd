@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-tipos',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TiposComponent implements OnInit {
 
+  @ViewChild('myModal') public myModal: ModalDirective;
+  
   constructor() { }
 
   ngOnInit(): void {
