@@ -7,8 +7,8 @@
   [asideMenuToggler]="false" 
   >
   <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item d-md-down-none">
-      <a class="nav-link" href="#"> &nbsp; Sair &nbsp; <i class="icon-logout"></i> &nbsp;</a>
+    <li class="nav-item d-md-down-none" (click)="logout()" type="button">
+      <a class="nav-link" > &nbsp; Sair &nbsp; <i class="icon-logout"></i> &nbsp;</a>
     </li>
   </ul>
 </app-header>

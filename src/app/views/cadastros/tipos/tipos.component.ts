@@ -5,6 +5,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TipoDespesaService } from '../../../services/req/tipo-despesa.service';
 import { StorageService } from '../../../services/utils/storage.service';
 import TipoDespesaInput from '../../../shared/models/TipoDespesa/Input/TipoDespesaInput';
+import TipoDespesaResponse from '../../../shared/models/TipoDespesa/Response/TipoDespesaResponse';
 @Component({
   selector: 'app-tipos',
   templateUrl: './tipos.component.html'
@@ -15,7 +16,8 @@ export class TiposComponent implements OnInit {
   //Variáreis 
   tipoDespesaForm: FormGroup;
   alertsDismiss: any = [];
-
+  listTipoDespesa : TipoDespesaResponse[];
+  
   @ViewChild('registerModal') public registerModal: ModalDirective;
   
   constructor(
@@ -26,6 +28,7 @@ export class TiposComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getAll();
     this.initForm();
   }
 
@@ -62,15 +65,32 @@ export class TiposComponent implements OnInit {
     this.TipoDespesaService.CadastrarNovoTipoDespesa(tipoDespesa).subscribe(data =>{
       if(data){
         this.addAlert("Novo tipo cadastrado com sucesso!","success")
+        this.registerModal.hide();
+        this.getAll();
       }
 
     }, ex => {
-      console.log(ex);
       this.addAlert(ex.error, "danger")
     });
   }
 
+  getAll(){
+    const userData = this.storageService.get('user');
+    this.TipoDespesaService.GetTodosOsTiposDeDespesa(userData.id).subscribe(data =>{
+        this.listTipoDespesa = data;
+    }, ex =>{
+      this.addAlert(ex.error, "danger")
+    })
+  }
 
+  delete(id: string){
+    this.TipoDespesaService.DeleteTipoDespesa(id).subscribe(data =>{
+      this.getAll();
+      this.addAlert(data.message, "success")
+    }, ex => {
+      this.addAlert(ex.error, "danger")
+    });
+  }
   addAlert(msg: string, type: string): void {
     this.alertsDismiss.push({
       type: type,
