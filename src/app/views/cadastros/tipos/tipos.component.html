@@ -29,22 +29,12 @@
                 <label style="font-size: 14px;" class="badge badge-danger" *ngIf="tipo.isDespesa== true">Despesa</label>
             </td>
             <td>
-                <button type="button" class="btn btn-pill btn-warning">&nbsp;<i class="fa fa-edit"></i></button>
+                <button type="button" class="btn btn-pill btn-warning" (click)="update(tipo)">&nbsp;<i class="fa fa-edit"></i></button>
                 <button type="button" class="btn btn-pill btn-danger" (click)="delete(tipo.id)">&nbsp;<i class="fa fa-trash"></i>&nbsp;</button>
             </td>
           </tr>
         </tbody>
       </table>
-      <!-- <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-        <li class="page-item active">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul> -->
     </div>
   </div>
 

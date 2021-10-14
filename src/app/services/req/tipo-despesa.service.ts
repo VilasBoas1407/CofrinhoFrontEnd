@@ -28,6 +28,9 @@ export class TipoDespesaService {
     }),
   };
 
+  public AtualizarTipoDespesa(TipoDespesa : TipoDespesaInput) : Observable<TipoDespesaResponse>{
+    return this.httpClient.put<TipoDespesaResponse>(apiUrl + 'tipoDespesa',TipoDespesa,this.httpOptionsAuth);
+  }
   public CadastrarNovoTipoDespesa(TipoDespesa: TipoDespesaInput) : Observable<TipoDespesaResponse>{
     return this.httpClient.post<TipoDespesaResponse>(apiUrl + 'tipoDespesa',TipoDespesa,this.httpOptionsAuth);
   }
