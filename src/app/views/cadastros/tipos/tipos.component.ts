@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TipoDespesaService } from '../../../services/req/tipo-despesa.service';
 import { StorageService } from '../../../services/utils/storage.service';
@@ -66,9 +65,6 @@ export class TiposComponent implements OnInit {
     const userData = this.storageService.get('user');
     tipoDespesa.IdUsuario = String(userData.id);
 
-
-
-    console.log("Oi")
     if(Action == "Register"){
       this.TipoDespesaService.CadastrarNovoTipoDespesa(tipoDespesa).subscribe(data =>{
         if(data){
