@@ -136,6 +136,9 @@ export class TiposComponent implements OnInit {
       Tipo: tipoDespesa.isDespesa ? "1" : "0",
       Action: "Update"
     }); 
+
   }
+
+
 
 }

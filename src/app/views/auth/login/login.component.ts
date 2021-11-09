@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit{
     private formBuilder : FormBuilder,
     private LoginService : LoginService,
     private router : Router,
-    private activedRoute: ActivatedRoute,
     private storageService: StorageService
   ){
 
@@ -76,9 +75,6 @@ export class LoginComponent implements OnInit{
 
   }
 
-  forgotPassword(){
-    this.router.navigate(['recuperar-senha'])
-  }
 
   addAlert(msg: string, type: string): void {
     this.alertsDismiss.push({
