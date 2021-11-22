@@ -29,17 +29,17 @@ export class TipoDespesaService {
   };
 
   public AtualizarTipoDespesa(TipoDespesa : TipoDespesaInput) : Observable<TipoDespesaResponse>{
-    return this.httpClient.put<TipoDespesaResponse>(apiUrl + 'tipoDespesas',TipoDespesa,this.httpOptionsAuth);
+    return this.httpClient.put<TipoDespesaResponse>(apiUrl + 'tipoDespesa',TipoDespesa,this.httpOptionsAuth);
   }
   public CadastrarNovoTipoDespesa(TipoDespesa: TipoDespesaInput) : Observable<TipoDespesaResponse>{
-    return this.httpClient.post<TipoDespesaResponse>(apiUrl + 'tipoDespesas',TipoDespesa,this.httpOptionsAuth);
+    return this.httpClient.post<TipoDespesaResponse>(apiUrl + 'tipoDespesa',TipoDespesa,this.httpOptionsAuth);
   }
 
   public GetTodosOsTiposDeDespesa(idUser: string ) :Observable<TipoDespesaResponse[]>{
-    return this.httpClient.get<TipoDespesaResponse[]>(apiUrl + `tipoDespesas/${idUser}`, this.httpOptionsAuth);
+    return this.httpClient.get<TipoDespesaResponse[]>(apiUrl + `tipoDespesa/${idUser}`, this.httpOptionsAuth);
   }
 
   public DeleteTipoDespesa(idTipoDespesa: string) : Observable<MessageResponse>{
-    return this.httpClient.delete<MessageResponse>(apiUrl+`tipoDespesas/${idTipoDespesa}`,this.httpOptionsAuth);
+    return this.httpClient.delete<MessageResponse>(apiUrl+`tipoDespesa/${idTipoDespesa}`,this.httpOptionsAuth);
   }
 }

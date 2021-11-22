@@ -15,7 +15,7 @@ export const navItems: INavData[] = [
     name: 'Planejamentos'
   },
   {
-    name: 'Listar Planejamentos Anteriores',
+    name: 'Listar Planejamentos',
     url: '/theme/typography',
     icon: 'icon-chart'
   },

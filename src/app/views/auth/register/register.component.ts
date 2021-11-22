@@ -57,10 +57,11 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
-    if(IsNull(form.value.Email)){
-      this.addAlert('Email é um campo obrigatório', 'danger');
+    if(IsNull(form.value.Email) || !form.value.Email.includes('@')){
+      this.addAlert('Insira um e-mail valido!', 'danger');
       return false;
     }
+
     if(IsNull(form.value.Password)){
       this.addAlert('Senha é um campo obrigatório', 'danger');
       return false;
@@ -72,7 +73,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if(form.value.Password != form.value.ConfirmPassword || IsNull(form.value.ConfirmPassword)){
-      this.addAlert('As senhas não coincidem', 'danger');
+      this.addAlert('As senhas não são iguais', 'danger');
       return false;
     }
 
