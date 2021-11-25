@@ -26,10 +26,44 @@
       <li class="breadcrumb-menu d-md-down-none">
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
           <button class="btn" ><i class="icon-settings"></i> &nbsp;Alterar Planejamento</button>
-          <button class="btn" (click)="change()"><i class="icon-plus"></i> &nbsp;Novo Planejamento</button>
+          <button class="btn" (click)="newPlanejamentoModal.show()"><i class="icon-plus"></i> &nbsp;Novo Planejamento</button>
         </div>
       </li>
     </cui-breadcrumb>
+    <div bsModal #newPlanejamentoModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Novo Planejamento</h4>
+            <button type="button" class="close" (click)="newPlanejamentoModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="ccyear">Mês:</label>
+                <select class="form-control" >
+                    <option *ngFor="let mes of meses" value="{{mes.Id}}">{{mes.Descricao}}</option>
+                </select>
+                <br/>
+                <label for="Ano">Ano</label>
+                <input type="number" class="form-control" placeholder="" autocomplete="ano" required>
+                <br/>
+                <div class="form-label">
+                  <input  type="checkbox" id="checkAtualizarPlanejamento" name="checkAtualizarPlanejamento" value="1">
+                  <label for="checkAtualizarPlanejamento">Atualizar Planejamento?</label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="newPlanejamentoModal.hide()">Fechar</button>
+            <button type="button" class="btn btn-primary" (click)="SaveNewPlanejamento()">Salvar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div class="container-fluid">
       <router-outlet></router-outlet>
     </div><!-- /.container-fluid -->

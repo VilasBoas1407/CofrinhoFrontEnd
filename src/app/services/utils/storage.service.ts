@@ -40,4 +40,8 @@ export class StorageService {
     }
     return false;
   }
+
+  getToken(): string {
+    return this.get('token');
+  }
 }
